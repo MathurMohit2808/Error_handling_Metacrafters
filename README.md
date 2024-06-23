@@ -64,6 +64,36 @@ Allows an authorized address to transfer shares to another authorized address. U
 
 Returns the number of shares held by the given address.
 
+**Error Conditions:**
+- If the address is not authorized, the transaction is reverted with the message "YOU ARE NOT REGISTERED TO TRADE SHARES! FIRST GET ALLOWANCE".
+
+#### Shares_sold(address addr, uint amount)
+
+Allows an authorized address to sell shares. Uses `revert()` to ensure the address is authorized and `require()` to check if the address has enough shares to sell. Emits the `shares_sold` event.
+
+**Error Conditions:**
+- If the address is not authorized, the transaction is reverted with the message "YOU ARE NOT REGISTERED TO TRADE SHARES! FIRST GET ALLOWANCE".
+- If the address does not have enough shares, the transaction is reverted with the message "YOU DO NOT HAVE ENOUGH SHARES".
+
+#### Shares_split(uint split_one_share_in)
+
+Allows the contract owner to split shares. Uses `assert()` to ensure only the owner can call this function and `require()` to ensure the split factor is not zero. Emits the `shares_split` event.
+
+**Error Conditions:**
+- If the sender is not the owner, the transaction fails due to the `assert` statement.
+- If the split factor is zero, the transaction is reverted with the message "IT CANNOT BE 0".
+
+#### Share_transferred(address sender, address receiver, uint amount)
+
+Allows an authorized address to transfer shares to another authorized address. Uses `revert()` to ensure both addresses are authorized and `require()` to check if the sender has enough shares to transfer. Emits the `shares_transferred` event.
+
+**Error Conditions:**
+- If the sender is not authorized, the transaction is reverted with the message "YOU ARE NOT REGISTERED TO TRADE SHARES! FIRST GET ALLOWANCE".
+- If the receiver is not authorized, the transaction is reverted with the message "YOU ARE NOT REGISTERED TO TRADE SHARES! FIRST GET ALLOWANCE".
+- If the sender does not have enough shares, the transaction is reverted with the message "YOU DO NOT HAVE ENOUGH SHARES".
+
+
+
 ## Getting Started
 
 ### Prerequisites

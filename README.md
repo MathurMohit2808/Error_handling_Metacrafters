@@ -1,6 +1,6 @@
 # SHARE_MARKET Solidity Contract
 
-This Solidity contract implements a simple share market where authorized users can buy, sell, split, and transfer shares. It demonstrates the use of `require()`, `assert()`, and `revert()` functions for error handling and enforcing business logic.
+A basic share market is implemented by this Solidity contract, allowing authorized users to purchase, sell, split, and transfer shares. The utilization of `require()`, `assert()`, and `revert()` methods for error handling and business logic enforcement is demonstrated.
 
 ## Description
 
@@ -10,7 +10,7 @@ The `SHARE_MARKET` contract allows authorized users to:
 - Split shares
 - Transfer shares
 
-The contract ensures that only authorized users can trade shares and maintains a list of authorized addresses. It also provides functions to check the balance of shares held by an address.
+The agreement keeps track of approved addresses and guarantees that only authorized users are able to trade shares. Additionally, it offers tools for determining how many shares an address currently owns.
 
 ## Code Explanation
 
